@@ -1,4 +1,6 @@
-# webe-test
+# Webengineering Demo App
 
-test
-v 1.3
+Simple demo app to edit person records.
+Supports JSON files and SQL Server.
+
+S. Traub

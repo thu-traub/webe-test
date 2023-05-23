@@ -1,0 +1,42 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<form method="post">
+<div class="text-start">
+    <table class="table">
+        <tr>
+            @foreach (var p in Model.ds.getProperties())
+            {
+                <th>
+                    @p
+                </th>
+            }
+        </tr>
+        @foreach (var p in Model.ds.getPersonList(0, 100))
+        {
+            <tr>
+                @foreach (var n in Model.ds.getProperties())
+                {
+                    <td>
+                        @if (n=="Id") {
+                            <a href="Person/@p.Id">@p.Id</a>
+                        } else {
+                            @Model.ds.getValue(p, n);
+                        }
+                    </td>
+                }
+<!--                
+                <td><a href="Person/@p.Id">@p.Id</a></td>
+                <td>@p.FirstName</td>
+                <td>@p.LastName</td>
+                <td>@p.Phone</td>
+-->                
+            </tr>
+        }
+    </table>
+    <input class="btn btn-success" type="submit" name="new" value="new">
+</div>
+</form>

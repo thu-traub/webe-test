@@ -26,7 +26,7 @@ public class SqlDataStore : IDataStore
 
     public Person? getPerson(int id)
     {
-        return ctx.Persons.Where(p=>p.Id==id).First<Person>();
+        return ctx.Persons.Where(p=>p.Id==id).FirstOrDefault();
     }
 
     public List<Person> getPersonList(int id, int limit)

@@ -41,8 +41,10 @@ public class PersonModel : PageModel
                      Regex.IsMatch(p.Phone,RePhone);
                      
         if (check) {
-            if (save=="save") ds.updatePerson(p);
-            else if (save=="delete") ds.deletePerson(p);
+            if (save == "save") {
+                if (p.Id == 0) ds.createPerson(p); else ds.updatePerson(p); 
+            }
+            else if (save == "delete") ds.deletePerson(p);
             Response.Redirect("/");
         } else {
             curr = p;

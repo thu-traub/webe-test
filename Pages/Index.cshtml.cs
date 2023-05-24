@@ -20,8 +20,6 @@ public class IndexModel : PageModel
 
     public void OnPost()
     {
-        Person p = new();
-        ds.createPerson(p);
-        Response.Redirect($"Person/{p.Id}");
+        Response.Redirect($"Person/0");
     }
 }
